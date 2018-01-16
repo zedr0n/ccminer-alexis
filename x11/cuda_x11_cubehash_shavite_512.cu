@@ -156,7 +156,7 @@ static void rrounds(uint32_t *x){
 //--END OF CUBEHASH512 MACROS----------------------------------
 
 __global__
-__launch_bounds__(TPB,3)
+__launch_bounds__(TPB,8)
 void x11_cubehashShavite512_gpu_hash_64(uint32_t threads, uint32_t *g_hash){
 
 	const uint32_t thread = (blockDim.x * blockIdx.x + threadIdx.x);

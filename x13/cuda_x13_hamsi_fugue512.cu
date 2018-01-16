@@ -418,7 +418,7 @@ __global__
 #if __CUDA_ARCH__ > 500
 __launch_bounds__(384,2)
 #else
-__launch_bounds__(384)
+__launch_bounds__(384,4)
 #endif
 void x13_hamsi_fugue512_gpu_hash_64(uint32_t threads, uint32_t *g_hash){
 

@@ -202,7 +202,7 @@ static void bmw512_round1(uint2* q,uint2* h,const uint64_t* msg){
 		h[15] = (ROL16(h[ 3]))   + (XH64 ^ q[31] ^ 512)  + (SHR2(XL64, 2) ^ q[22] ^ q[15]);
 }
 
-__global__ __launch_bounds__(32,8)
+__global__ __launch_bounds__(32,32)
 void quark_bmw512_gpu_hash_64(uint32_t threads, uint64_t *const __restrict__ g_hash, const uint32_t *const __restrict__ g_nonceVector){
 
 	const uint32_t thread = (blockDim.x * blockIdx.x + threadIdx.x);
