@@ -214,6 +214,7 @@ Usage: " PROGRAM_NAME " [OPTIONS]\n\
 Options:\n\
   -a, --algo=ALGO       specify the hash algorithm to use\n\
 		  	blake       Blake256-14rounds(SFR)\n\
+			bitcore		Timetravel10	\n\
 		  	decred      Blake256-14rounds(DCR)\n\
   			blakecoin   Blake256-8rounds (BLC)\n\
 			vcash       Blake256-8rounds (XVC)\n\
@@ -1476,6 +1477,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 		case ALGO_KECCAK:
 		case ALGO_LBRY:
 		case ALGO_LYRA2v2:
+		case ALGO_BITCORE:
 			work_set_target(work, sctx->job.diff / (256.0 * opt_difficulty));
 			break;
 		case ALGO_LYRA2:
@@ -2050,6 +2052,9 @@ static void *miner_thread(void *userdata)
 				break;
 			case ALGO_WHIRLPOOL:
 				rc = scanhash_whirl(thr_id, &work, max_nonce, &hashes_done);
+				break;
+			case ALGO_BITCORE:
+				rc = scanhash_bitcore(thr_id, &work, max_nonce, &hashes_done);
 				break;
 			case ALGO_X11:
 				rc = scanhash_x11(thr_id, &work, max_nonce, &hashes_done);

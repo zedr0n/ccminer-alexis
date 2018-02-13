@@ -2173,6 +2173,9 @@ void print_hash_tests(void){
 	qubithash(&hash[0], &buf[0]);
 	printpfx("qubit", hash);
 
+	bitcore_hash(&hash[0], &buf[0]);
+	printpfx("bitcore", hash);
+
 	x11hash(&hash[0], &buf[0]);
 	printpfx("X11", hash);
 

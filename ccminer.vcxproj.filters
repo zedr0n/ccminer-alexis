@@ -643,6 +643,9 @@
     <CudaCompile Include="x13\hsr.cu">
       <Filter>Source Files\CUDA\x13</Filter>
     </CudaCompile>
+    <CudaCompile Include="x11\bitcore.cu">
+      <Filter>Source Files\CUDA\x11</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\ccminer.ico">

@@ -43,6 +43,7 @@ void bench_free()
 // required to switch algos
 void algo_free_all(int thr_id){
 	// only initialized algos will be freed
+	free_bitcore(thr_id);
 	free_blake256_8round(thr_id);
 	free_blake256_14round(thr_id);
 	free_decred(thr_id);

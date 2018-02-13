@@ -21,6 +21,7 @@ enum sha_algos {
 	ALGO_QUARK,
 	ALGO_QUBIT,
 	ALGO_WHIRLPOOL,
+	ALGO_BITCORE,
 	ALGO_X11,
 	ALGO_X11EVO,
 	ALGO_C11,
@@ -58,6 +59,7 @@ static const char *algo_names[] = {
 	"quark",
 	"qubit",
 	"whirlpool",
+	"bitcore",
 	"x11",
 	"x11evo",
 	"c11",
@@ -101,6 +103,8 @@ static inline int algo_to_int(char* arg)
 			i = ALGO_LYRA2v2;
 		else if (!strcasecmp("thorsriddle", arg))
 			i = ALGO_VELTOR;
+		else if (!strcasecmp("timetravel10", arg))
+			i = ALGO_BITCORE;
 		else if (!strcasecmp("whirl", arg))
 			i = ALGO_WHIRLPOOL;
 		else
